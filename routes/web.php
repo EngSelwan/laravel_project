@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-/*-------- offers--------- */
+/*--------start offers--------- */
 Route::group(['prefix' => 'offers'], function () {
     //   Route::get('store', 'CrudController@store');
     Route::get('create', [App\Http\Controllers\CrudController::class,'create']);
@@ -37,7 +37,7 @@ Route::group(['prefix' => 'offers'], function () {
 
 });
 
-/*-------- offers--------- */
+/*--------end offers--------- */
 Route::group(['middleware'=>'CheckAge','namespace'=>'Auth'],function(){
          Route::get('adults',function()
          {
@@ -48,3 +48,6 @@ Route::get('error',function()
 {
     return 'you are not sew';
 })->name('not');
+
+Route::get('site',[App\Http\Controllers\CustomAuthController::class,'site']);
+Route::get('admin',[App\Http\Controllers\CustomAuthController::class,'site']);
