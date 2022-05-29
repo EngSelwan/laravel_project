@@ -9,24 +9,11 @@ use Illuminate\Http\Request;
 
 class CrudController extends Controller
 {
-    use OfferTrait;
+    //use OfferTrait;
     public function getOffers()
     {
         return Offer::select('id', 'name')->get();
     }
-
-
-    /* public function store()
-     {
-
-         Offer::create([
-             'name' => 'Offer3',
-             'price' => '5000',
-             'details' => 'offer details',
-         ]);
-     }*/
-
-
     public function create()
     {
         return view('offers.create');
@@ -85,28 +72,28 @@ class CrudController extends Controller
 
     public function getAllOffers()
     {
-       /* $offers = Offer::select('id',
+       $offers = Offer::select('id',
             'price',
             'photo',
-            'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
-            'details_' . LaravelLocalization::getCurrentLocale() . ' as details'
+            'name_ar',
+            'details_ar' ,
         )->get(); // return collection of all result*/
 
 
        ##################### paginate result ####################
-         $offers = Offer::select('id',
+        /* $offers = Offer::select('id',
             'price',
             'photo',
             'name_ar',
-            'details_ar'
-    );
+            'details_ar'*/
+
 
 
 
         //return view('offers.all', compact('offers'));
 
 
-        return view('offers.paginations',compact('offers'));
+        return view('offers.all',compact('offers'));
     }
 
 

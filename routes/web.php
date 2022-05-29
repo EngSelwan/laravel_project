@@ -36,3 +36,5 @@ Route::group(['prefix' => 'offers'], function () {
     Route::get('all',[App\Http\Controllers\CrudController::class,'getAllOffers'])->name('offers.all');
 
 });
+
+/*-------- offers--------- */
