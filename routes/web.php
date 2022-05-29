@@ -38,3 +38,13 @@ Route::group(['prefix' => 'offers'], function () {
 });
 
 /*-------- offers--------- */
+Route::group(['middleware'=>'CheckAge','namespace'=>'Auth'],function(){
+         Route::get('adults',function()
+         {
+             return 'you are  selwan';
+         });
+});
+Route::get('error',function()
+{
+    return 'you are not sew';
+})->name('not');

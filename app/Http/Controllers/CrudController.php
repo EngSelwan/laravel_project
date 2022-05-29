@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class CrudController extends Controller
 {
-    //use OfferTrait;
+
     public function getOffers()
     {
         return Offer::select('id', 'name')->get();
@@ -43,7 +43,7 @@ class CrudController extends Controller
             'details_en' => $request->details_en,
         ]);
 
-        return redirect()->back()->with(['success' => 'تم اضافه العرض بنجاح ']);
+        return 'تم الحفظ بنجاح';
     }
 
 
