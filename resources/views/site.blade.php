@@ -5,7 +5,7 @@
 <br>
 <br>
          <div class="container">
-             <div class="alert alert-sucess">
+             <div class="alert alert-success">
                   you are user and you are login
              </div>
          </div>

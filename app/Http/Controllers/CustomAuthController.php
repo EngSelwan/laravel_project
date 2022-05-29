@@ -15,4 +15,12 @@ class CustomAuthController extends Controller
     {
         return view('admin');
     }
+    public function adminlogin()
+    {
+        return view('auth.Adminlogin');
+    }
+    public function check_admin_login()
+    {
+        return 'Hi Admin';
+    }
 }

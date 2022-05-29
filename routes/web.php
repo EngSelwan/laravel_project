@@ -49,5 +49,7 @@ Route::get('error',function()
     return 'you are not sew';
 })->name('not');
 
-Route::get('site',[App\Http\Controllers\CustomAuthController::class,'site']);
-Route::get('admin',[App\Http\Controllers\CustomAuthController::class,'site']);
+Route::get('site',[App\Http\Controllers\CustomAuthController::class,'site'])->middleware('auth:web');
+Route::get('admin',[App\Http\Controllers\CustomAuthController::class,'site'])->middleware('auth:admin');
+Route::get('admin/login',[App\Http\Controllers\CustomAuthController::class,'adminlogin'])->name('admin.login');
+Route::post('admin/save',[App\Http\Controllers\CustomAuthController::class,'check_admin_login'])->name('save.admin.login');
