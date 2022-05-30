@@ -50,6 +50,6 @@ Route::get('error',function()
 })->name('not');
 
 Route::get('site',[App\Http\Controllers\CustomAuthController::class,'site'])->middleware('auth:web');
-Route::get('admin',[App\Http\Controllers\CustomAuthController::class,'site'])->middleware('auth:admin');
+Route::get('admin',[App\Http\Controllers\CustomAuthController::class,'admin'])->middleware('auth:admin');
 Route::get('admin/login',[App\Http\Controllers\CustomAuthController::class,'adminlogin'])->name('admin.login');
 Route::post('admin/save',[App\Http\Controllers\CustomAuthController::class,'check_admin_login'])->name('save.admin.login');

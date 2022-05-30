@@ -15,4 +15,5 @@ class Admin extends Authenticatable
         'password',
 
     ];
+    protected $guard ="admin";
 }
