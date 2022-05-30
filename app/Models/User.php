@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'mobile'
     ];
 
     /**
@@ -41,4 +42,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /******************Start Relations ************** */
+        public function phone()
+        {
+            //inside has one model Phone
+            // user id the field which i want make foreign key
+          return  $this->hasOne('App\Models\Phone','user_id');
+        }
+    /******************End Relations ************** */
 }

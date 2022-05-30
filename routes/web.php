@@ -48,8 +48,17 @@ Route::get('error',function()
 {
     return 'you are not sew';
 })->name('not');
+/******* Start Authentecation Gaurd *********** */
 
 Route::get('site',[App\Http\Controllers\CustomAuthController::class,'site'])->middleware('auth:web');
 Route::get('admin',[App\Http\Controllers\CustomAuthController::class,'admin'])->middleware('auth:admin');
 Route::get('admin/login',[App\Http\Controllers\CustomAuthController::class,'adminlogin'])->name('admin.login');
 Route::post('admin/save',[App\Http\Controllers\CustomAuthController::class,'check_admin_login'])->name('save.admin.login');
+/******* End Authentecation Gaurd *********** */
+
+/******* Start Relation Rutes *********** */
+Route::get('has-one',[App\Http\Controllers\Relations\RelationsController::class,'hasOneRelation']);
+Route::get('has-one-reserve',[App\Http\Controllers\Relations\RelationsController::class,'hasOneRelationReverse']);
+Route::get('get-user-has-phone',[App\Http\Controllers\Relations\RelationsController::class,'getUserhasPhone']);
+Route::get('get-user-not-has-phone',[App\Http\Controllers\Relations\RelationsController::class,'getUserNothasPhone']);
+/******* End Relation Rutes *********** */
